@@ -5,6 +5,6 @@ Weekend homework. TDD, functions to implement pet shop management
 
 `cash(customer)` - How much cash does customer have
 
-`debit_or_credit_customer`(customer, amount)
+`debit_or_credit_customer(customer, amount)`
 
 
