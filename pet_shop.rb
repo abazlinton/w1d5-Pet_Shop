@@ -5,7 +5,7 @@ def pet_shop_name(shop)
 end
 
 def total_cash(shop)
-	return shop[:admin][:total_cash]
+	return shop[:admin][:cash]
 end
 
 def cash(customer)
@@ -13,7 +13,7 @@ def cash(customer)
 end
 
 def add_or_remove_cash(shop, transaction)
-	shop[:admin][:total_cash] += transaction
+	shop[:admin][:cash] += transaction
 end
 
 def pets_sold(shop)
@@ -100,6 +100,13 @@ def sell_pet_to_customer(shop, pet, customer)
 	end
 	#binding.pry
 end
+
+def pass_cash(payer, recipient, amount)
+	recipient[:cash] += amount
+	payer[:cash] -= amount
+	binding.pry
+end
+
 
 
 
