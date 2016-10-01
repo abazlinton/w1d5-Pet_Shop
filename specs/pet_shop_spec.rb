@@ -259,8 +259,10 @@ class TestPetShop < Minitest::Test
     sell_pet_to_customer(@pet_shop, pet, customer)
     #binding.pry
     assert_equal(5, count)
-
     
   end
+
+
+
 
 end
