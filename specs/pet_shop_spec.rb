@@ -67,7 +67,7 @@ class TestPetShop < Minitest::Test
           }
         ],
         admin: {
-          total_cash: 1000,
+          cash: 1000,
           pets_sold: 0,
         },
         name: "Camelot of Pets"
@@ -262,16 +262,20 @@ class TestPetShop < Minitest::Test
     
   end
 
-  def test_transfer_money__retail
+  
 
+  def test_pass_cash__customer_to_shop
+    recipient = @customers[0]
+    payer = @pet_shop[:admin]
+    amount = 10
+
+    pass_cash(recipient, payer, amount)
+
+    assert_equal( 1990, recipient[:cash] )
+    assert_equal( 1010, payer[:cash] )
   end
 
-  def test_transfer_money__p2p
 
-
-
-
-  end
 
 
 
