@@ -262,6 +262,13 @@ class TestPetShop < Minitest::Test
     
   end
 
+  def test_transfer_money__retail
+
+  end
+
+  def test_transfer_money__p2p
+
+  end
 
 
 
