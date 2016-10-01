@@ -238,9 +238,10 @@ class TestPetShop < Minitest::Test
     #
     assert_equal(5, count)
     
-  end
+    end
 
   
+
 
   def test_pass_cash__customer_to_shop
     receiver = @pet_shop
