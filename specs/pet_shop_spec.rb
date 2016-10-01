@@ -117,7 +117,7 @@ class TestPetShop < Minitest::Test
     assert_equal(6, count)
   end
 
-  def test_all_pets_by_breed__found__array
+  def test_all_pets_by_breed__found_array
     pets = pets_by_breed(@pet_shop, "British Shorthair")
     test_array = @pet_shop[:pets]
     test_array = test_array.first(2)
@@ -130,7 +130,7 @@ class TestPetShop < Minitest::Test
     assert_equal(0, pets.count)
   end
 
-  def test_all_pets_by_breed__found__2
+  def test_all_pets_by_breed__found_2
 
     pets = pets_by_breed(@pet_shop, "British Shorthair")
     assert_equal(2, pets.count)
@@ -257,7 +257,7 @@ class TestPetShop < Minitest::Test
     pet = find_pet_by_name(@pet_shop,"King Bagdemagus")
 
     sell_pet_to_customer(@pet_shop, pet, customer)
-    binding.pry
+    #binding.pry
     assert_equal(5, count)
 
     
