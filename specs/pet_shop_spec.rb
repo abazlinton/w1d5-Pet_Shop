@@ -120,7 +120,7 @@ class TestPetShop < Minitest::Test
   def test_all_pets_by_breed__found__array
     pets = pets_by_breed(@pet_shop, "British Shorthair")
     test_array = @pet_shop[:pets]
-    test_array.pop(4)
+    test_array = test_array.first(2)
     assert_equal(test_array, pets)
   end
 
