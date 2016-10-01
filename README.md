@@ -14,6 +14,6 @@ debit_or_credit_customer(customer, amount)
 Becomes:
 ```
 test_all_pets_by_breed__found_2
-test_all_pets_by_breed__found__array
+test_all_pets_by_breed__found_array
 ```
 
