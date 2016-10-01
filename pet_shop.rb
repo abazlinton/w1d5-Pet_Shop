@@ -4,24 +4,18 @@ def pet_shop_name(shop)
 	return shop[:name]
 end
 
-def total_cash(shop)
-	return shop[:admin][:total_cash]
-end
 
-def cash(customer)
-	return customer[:cash]
-end
-
-def add_or_remove_cash(shop, transaction)
-	shop[:admin][:total_cash] += transaction
+def cash(entity)
+	return entity[:cash]
 end
 
 def pets_sold(shop)
-	return shop[:admin][:pets_sold]
+	return shop[:pets_sold]
 end
 
 def increase_pets_sold(shop, sales_to_record)
-	shop[:admin][:pets_sold] += sales_to_record
+	shop[:pets_sold] += sales_to_record
+
 end
 
 def stock_count(shop)
@@ -48,7 +42,7 @@ def pets_by_breed(shop, breed_query)
 end
 
 def remove_pet_by_name(shop, name)
-	#binding.pry
+	#
 	for pet in shop[:pets]
 		if pet[:name].downcase == name.downcase
 			shop[:pets].delete(pet) 
@@ -81,13 +75,9 @@ def customer_can_afford_pet?(customer, pet)
 	end
 end
 
-def debit_or_credit_customer(customer, amount)
-	customer[:cash] += amount
-end
-
 
 def sell_pet_to_customer(shop, pet, customer)
-	#binding.pry
+	#
 
 	return if pet == nil
 
@@ -95,11 +85,17 @@ def sell_pet_to_customer(shop, pet, customer)
 		shop[:pets].delete(pet)
 		add_pet_to_customer(customer, pet)
 		increase_pets_sold(shop, 1)
-		debit_or_credit_customer(customer, -1 * pet[:price])
-		add_or_remove_cash(shop, pet[:price])
+		pass_cash(customer, shop, pet[:price])	
 	end
-	#binding.pry
+	#
 end
+
+def pass_cash(giver, receiver, amount)
+	receiver[:cash] += amount
+	giver[:cash] -= amount
+end
+
+
 
 
 

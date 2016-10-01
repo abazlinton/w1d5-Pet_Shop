@@ -66,11 +66,12 @@ class TestPetShop < Minitest::Test
             price: 1500,
           }
         ],
-        admin: {
-          total_cash: 1000,
-          pets_sold: 0,
-        },
-        name: "Camelot of Pets"
+          
+       
+        name: "Camelot of Pets",
+        cash: 1000,
+        pets_sold: 0,
+
       }
   end
 
@@ -79,27 +80,15 @@ class TestPetShop < Minitest::Test
     assert_equal("Camelot of Pets", name)
   end
 
-  def test_total_cash
-    sum = total_cash(@pet_shop)
-    assert_equal(1000, sum)
-  end
 
   def test_cash
     sum = cash(@customers[1])
     assert_equal(50, sum)
+
+    sum = cash(@pet_shop)
+    assert_equal(1000, sum)
   end
 
-  def test_add_or_remove_cash__add
-    add_or_remove_cash(@pet_shop,10)
-    cash = total_cash(@pet_shop)
-    assert_equal(1010, cash)
-  end
-
-  def test_add_or_remove_cash__remove
-    add_or_remove_cash(@pet_shop,-10)
-    cash = total_cash(@pet_shop)
-    assert_equal(990, cash)
-  end
 
   def test_pets_sold
     sold = pets_sold(@pet_shop)
@@ -199,19 +188,7 @@ class TestPetShop < Minitest::Test
 
     assert_equal(1, customer_pet_count(customer))
     assert_equal(1, pets_sold(@pet_shop))
-    assert_equal(1900, total_cash(@pet_shop))
-  end
-
-  def test_debit_or_credit_customer__debit
-    customer = @customers[1]
-    debit_or_credit_customer(customer, -12.50)
-    assert_equal(37.50, customer[:cash])
-  end
-
-  def test_debit_or_credit_customer__credit
-    customer = @customers[1]
-    debit_or_credit_customer(customer, 20)
-    assert_equal(70, customer[:cash])
+    assert_equal(1900, cash(@pet_shop))
   end
 
 
@@ -224,7 +201,7 @@ class TestPetShop < Minitest::Test
 
     assert_equal(0, customer_pet_count(customer))
     assert_equal(0, pets_sold(@pet_shop))
-    assert_equal(1000, total_cash(@pet_shop))
+    assert_equal(1000, cash(@pet_shop))
   end
 
   def test_sell_pet_to_customer__insufficient_funds
@@ -235,8 +212,8 @@ class TestPetShop < Minitest::Test
 
     assert_equal(0, customer_pet_count(customer))
     assert_equal(0, pets_sold(@pet_shop))
-    assert_equal(1000, total_cash(@pet_shop))
-    #binding.pry
+    assert_equal(1000, cash(@pet_shop))
+    #
   end
 
    def test_sell_pet_to_customer__done_deal
@@ -249,7 +226,7 @@ class TestPetShop < Minitest::Test
 
     assert_equal(1, customer_pet_count(customer))
     assert_equal(1, pets_sold(@pet_shop))
-    assert_equal(1800, total_cash(@pet_shop))
+    assert_equal(1800, cash(@pet_shop))
     assert_equal(1200, cash(customer))
     assert_equal(5, count)
 
@@ -257,10 +234,27 @@ class TestPetShop < Minitest::Test
     pet = find_pet_by_name(@pet_shop,"King Bagdemagus")
 
     sell_pet_to_customer(@pet_shop, pet, customer)
-    #binding.pry
+    
+    #
     assert_equal(5, count)
-
     
   end
+
+  
+
+  def test_pass_cash__customer_to_shop
+    receiver = @customers[0]
+    giver = @pet_shop
+    amount = 10
+
+    pass_cash(receiver, giver, amount)
+
+    assert_equal( 1990, receiver[:cash] )
+    assert_equal( 1010, giver[:cash] )
+  end
+
+
+
+
 
 end
