@@ -91,8 +91,10 @@ def sell_pet_to_customer(shop, pet, customer)
 end
 
 def pass_cash(giver, receiver, amount)
-	receiver[:cash] += amount
+	
 	giver[:cash] -= amount
+	receiver[:cash] += amount
+
 end
 
 

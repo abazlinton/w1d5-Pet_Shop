@@ -243,15 +243,16 @@ class TestPetShop < Minitest::Test
   
 
   def test_pass_cash__customer_to_shop
-    receiver = @customers[0]
-    giver = @pet_shop
+    receiver = @pet_shop
+    giver = @customers[0]
     amount = 10
 
-    pass_cash(receiver, giver, amount)
+    pass_cash(giver, receiver, amount)
 
-    assert_equal( 1990, receiver[:cash] )
-    assert_equal( 1010, giver[:cash] )
+    assert_equal( 1010, receiver[:cash] )
+    assert_equal( 1990, giver[:cash] )
   end
+
 
 
 
