@@ -4,17 +4,10 @@ def pet_shop_name(shop)
 	return shop[:name]
 end
 
-# def total_cash(shop)
-# 	return shop[:cash]
-# end
 
 def cash(entity)
 	return entity[:cash]
 end
-
-# def add_or_remove_cash(shop, transaction)
-# 	shop[:admin][:cash] += transaction
-# end
 
 def pets_sold(shop)
 	return shop[:pets_sold]
@@ -81,10 +74,6 @@ def customer_can_afford_pet?(customer, pet)
 		return false
 	end
 end
-
-# def debit_or_credit_customer(customer, amount)
-# 	customer[:cash] += amount
-# end
 
 
 def sell_pet_to_customer(shop, pet, customer)
