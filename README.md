@@ -7,6 +7,6 @@ Weekend homework. TDD, functions to implement pet shop management
 
 `debit_or_credit_customer(customer, amount)`
 
-`
+
 
 
