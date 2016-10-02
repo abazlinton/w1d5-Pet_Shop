@@ -2,8 +2,8 @@
 Weekend homework. TDD, functions to implement pet shop management
 
 #Changed data structure
-```
-Shop now has :cash at root, instead of :total_cash at [:admin]. This means that cash() works with customers and shops.
+
+Shop now has `:cash` at root, instead of `:total_cash` at `[:admin]`. This means that `cash()` works with customers and shops.
 
 #Added functions
 ```
@@ -30,3 +30,4 @@ test_all_pets_by_breed__found_array
 test_cash
 test_debit_or_credit_customer__debit
 test_debit_or_credit_customer__credit
+```
