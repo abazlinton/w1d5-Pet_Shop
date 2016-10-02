@@ -12,6 +12,7 @@ debit_or_credit_customer(customer, amount)
 test_cash
 test_debit_or_credit_customer__debit
 test_debit_or_credit_customer__credit
+pass_cash(giver, receiver, amount)
 ```
 ##Removed functions
 ```
