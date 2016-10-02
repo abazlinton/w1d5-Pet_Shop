@@ -10,10 +10,12 @@ Shop now has `:cash` at root, instead of `:total_cash` at `:admin`. This means t
 cash(entity)
 debit_or_credit_customer(customer, amount)
 ```
-##Removed tests
+##Removed functions
 ```
 total_cash(shop)
+test_total_cash(shop)
 cash(customer)
+test_cash(customer)
 ```
 ##Changed tests
 
