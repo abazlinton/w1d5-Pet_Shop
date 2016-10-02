@@ -18,7 +18,7 @@ test_debit_or_credit_customer__credit
 total_cash(shop)
 test_total_cash(shop)
 cash(customer)
-test_cash(customer)
+test_cash(shop)
 ```
 ##Changed functions
 
