@@ -9,6 +9,9 @@ Shop now has `:cash` at root, instead of `:total_cash` at `:admin`. This means t
 ```
 cash(entity)
 debit_or_credit_customer(customer, amount)
+test_cash
+test_debit_or_credit_customer__debit
+test_debit_or_credit_customer__credit
 ```
 ##Removed functions
 ```
@@ -17,7 +20,7 @@ test_total_cash(shop)
 cash(customer)
 test_cash(customer)
 ```
-##Changed tests
+##Changed functions
 
 `test_all_pets_by_breed__found`
 
@@ -25,11 +28,4 @@ Becomes:
 ```
 test_all_pets_by_breed__found_2
 test_all_pets_by_breed__found_array
-```
-##Added tests
-
-```
-test_cash
-test_debit_or_credit_customer__debit
-test_debit_or_credit_customer__credit
 ```
